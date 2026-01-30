@@ -9,7 +9,7 @@ let precio = 199.99;
 console.log("Tipo de dato Number:");
 console.log(edad);
 console.log(precio);
-console.log(typeof edad); 
+console.log(typeof edad); // typeof imprime el tipo de dato en la consola
 console.log(typeof precio);
 
 // String (texto)
