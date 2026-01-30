@@ -10,13 +10,13 @@ console.log("Operadores matematicos")
 let sumas = num1 + num2;  // OPeracion de variables 
 let resta = num2 - num1;
 let modulo = num1 % num2;
-let exp = num1 ** num2;
+let exp = num1 ** num2; // Operador exponencial **
 
 
 console.log(sumas); // Impresion del valor de una variable que suma otras variables
 console.log(15+15);
 console.log(resta);
-console.log("La respuesta es: " + modulo);
+console.log("La respuesta es: " + modulo); // Concatenacion
 console.log(exp);
 
 console.log(num1*num2);
@@ -32,7 +32,7 @@ console.log(12 == '12');
 // Comparacion estricta, triple igual
 console.log( 23 === '23');  // Tambien compara el tipo de dato de ambas variables o datos a comparar
 
-console.log("---------------------")
+console.log("---------------------------")
 let valor1 = 50;
 let valor2 = 80;
 
