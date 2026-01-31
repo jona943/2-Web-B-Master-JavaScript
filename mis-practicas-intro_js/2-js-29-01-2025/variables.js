@@ -22,7 +22,7 @@ console.log(exp);
 console.log(num1*num2);
 console.log(num2/num1);
 
-console.log("Operadores logicos")
+console.log("Operadores logicos");
 //Comparaciones simples
 console.log(num1 == num2);  // Comparacion de valores da una salida boleana
 console.log(17 == 17);
@@ -32,7 +32,7 @@ console.log(12 == '12');
 // Comparacion estricta, triple igual
 console.log( 23 === '23');  // Tambien compara el tipo de dato de ambas variables o datos a comparar
 
-console.log("---------------------------")
+console.log("---------------------------");
 let valor1 = 50;
 let valor2 = 80;
 
@@ -48,17 +48,17 @@ console.log(valor1 <= valor2);
 console.log(10 != '10');
 // Distinto que estricto
 console.log(10 !== '10');
-
-console.log(valor1 + 2);
-
+ 
 // |-------------------------------------------|
 
 // Operadores combinados 
 valor1 = valor1 + 3;
-valor1 += 4;
+valor1 += 4; // Simplificacion 
+valor1 += 6;
 
 valor2 = valor2 - 8;
 valor2 -= 8;
+valor2 -= 3;
 
 
 console.log(valor1);
@@ -66,4 +66,4 @@ console.log(valor1);
 // El modulo % devuelve el restante de una division 
 // a % b 
 
-console.log(8 % 2)
+console.log(8 % 2);
