@@ -22,7 +22,7 @@ Cada uno de estos subdirectorios contiene los archivos (`.html`, `.js`, etc.) co
     └── [numero]-js-[DD-MM-AAAA]/  // Carpeta de la lección
         ├── [archivo-de-practica].js
         ├── index.html
-        └── entregable/              // Carpeta para el entregable (opcional)
+        └── entregable/              // Carpeta para el entregable
             └── [archivo-entregable].js
 ```
 
