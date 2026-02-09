@@ -2,12 +2,25 @@
 let librosLeidos = [];
 
 const agregarLibro = (titulo) => { 
-    return librosLeidos; 
+    librosLeidos.push(titulo); 
 };
 
-librosLeidos.push("Deja de ser tu - Joe Dispenza");
 
-console.log(librosLeidos);
+// console.log(librosLeidos); // Antes de llamar a la funcion
 
+agregarLibro("Deja de ser tu - Joe Dispenza");
+agregarLibro("La Inteligencia Emocional - Daniel Goleman");
+agregarLibro("Si lo crees lo creas - Bryan Tracy")
 
+// console.log(librosLeidos); // Despues de llamar a la funcion
+
+function mostrarLibrosLeidos(){
+    if (librosLeidos.length <= 0){
+        console.log("No haz leido ningun libro");
+    } else if (librosLeidos > 0){
+        for (let i = 0; i < librosLeidos.length; i++){
+            console.log(i + librosLeidos[i]);
+        };
+    };
+}
 
