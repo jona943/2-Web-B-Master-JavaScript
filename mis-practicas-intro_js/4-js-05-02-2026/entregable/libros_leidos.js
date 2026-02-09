@@ -1,10 +1,8 @@
-
 let librosLeidos = [];
 
 const agregarLibro = (titulo) => { 
     librosLeidos.push(titulo); 
 };
-
 
 // console.log(librosLeidos); // Antes de llamar a la funcion
 
@@ -17,10 +15,11 @@ agregarLibro("Si lo crees lo creas - Bryan Tracy")
 function mostrarLibrosLeidos(){
     if (librosLeidos.length <= 0){
         console.log("No haz leido ningun libro");
-    } else if (librosLeidos > 0){
+    } else {
         for (let i = 0; i < librosLeidos.length; i++){
-            console.log(i + librosLeidos[i]);
+            console.log(i + 1, librosLeidos[i]);
         };
     };
 }
 
+mostrarLibrosLeidos();
