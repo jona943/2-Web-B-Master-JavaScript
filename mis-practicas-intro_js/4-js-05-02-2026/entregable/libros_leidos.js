@@ -23,3 +23,9 @@ function mostrarLibrosLeidos(){
 }
 
 mostrarLibrosLeidos();
+
+function sumar(a, b) {
+    a + b;
+};
+
+console.log(sumar(5, 5));
