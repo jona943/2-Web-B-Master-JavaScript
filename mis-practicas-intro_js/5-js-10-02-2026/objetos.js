@@ -1,0 +1,27 @@
+const albumBeatles = {
+  titulo: "Abbey Road",
+  artista: "The Beatles",
+  año: 1969,
+  canciones: [
+    "Come Together",
+    "Something",
+    "Maxwell's Silver Hammer",
+    "Oh! Darling",
+    "Octopus's Garden",
+    "I Want You (She's So Heavy)",
+    "Here Comes the Sun",
+    "Because",
+    "You Never Give Me Your Money",
+    "Sun King",
+    "Mean Mr. Mustard",
+    "Polythene Pam",
+    "She Came In Through the Bathroom Window",
+    "Golden Slumbers",
+    "Carry That Weight",
+    "The End",
+    "Her Majesty"
+  ]
+};
+
+
+console.log(albumBeatles.canciones);
