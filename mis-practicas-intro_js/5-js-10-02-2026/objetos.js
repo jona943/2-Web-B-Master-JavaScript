@@ -84,7 +84,6 @@ albumBeatles.listarCanciones(); // Para mostrar que no hubo cambios
 albumBeatles.eliminarCancion("Here Comes the Sun"); // Cancion eliminidada
 albumBeatles.listarCanciones();
 
-
 console.log("---------------------------");
 
 // Desestructurar - es SACAR cosas de un objeto o array SIN necesidad de escribir objeto.propiedad o array[indice]
