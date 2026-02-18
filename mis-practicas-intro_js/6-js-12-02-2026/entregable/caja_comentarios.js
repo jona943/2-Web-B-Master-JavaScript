@@ -12,6 +12,8 @@ enviar.addEventListener("click", function (event) {
     let c = comentario.value;
     // Creo un nuevo elemento en html tipo parrafo en una constante
     const nuevoComentario = document.createElement("p");
+    // Añade una clase para estilizar el comentario
+    nuevoComentario.classList.add('comment-item');
     // Se asigana el texto del usuario
     nuevoComentario.textContent = n + ": " + c;
     // Añade el nuevo elemento a la pagimagit

@@ -1,0 +1,53 @@
+body {
+    font-family: sans-serif; /* Una fuente simple */
+    background-color: #f0f2f5; /* Un gris muy claro para el fondo */
+    margin: 20px; /* Un margen alrededor de todo el contenido */
+}
+
+#caja-comentario {
+    background-color: #ffffff; /* Fondo blanco para el formulario */
+    border: 1px solid #ccc; /* Un borde gris claro */
+    padding: 20px; /* Espacio dentro del contenedor */
+    margin-bottom: 20px; /* Espacio debajo del formulario */
+    box-sizing: border-box; /* Incluye padding y border en el ancho/alto */
+}
+
+h1, h2 {
+    color: #333; /* Gris oscuro para los títulos */
+}
+
+textarea {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 8px; /* Espacio dentro de los campos de texto */
+    margin-bottom: 10px; /* Espacio entre los campos */
+    border: 1px solid #ddd; /* Borde suave */
+    box-sizing: border-sizing; /* Incluye padding y border en el ancho/alto */
+}
+
+button#enviar {
+    background-color: #5cb85c; /* Un verde para el botón */
+    color: white; /* Texto blanco */
+    padding: 10px 15px; /* Espacio dentro del botón */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Indica que es clickeable */
+    box-sizing: border-box;
+}
+
+#commentUser {
+    background-color: #e9e9e9; /* Un gris más oscuro para el área de comentarios */
+    padding: 15px; /* Espacio dentro de este contenedor */
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.comment-item {
+    background-color: #f8f8f8; /* Fondo un poco más claro para cada comentario */
+    padding: 10px; /* Espacio dentro de cada comentario */
+    margin-bottom: 10px; /* Espacio entre comentarios */
+    border: 1px solid #eee; /* Borde muy sutil */
+    box-sizing: border-box;
+}
+
+.comment-item:last-child {
+    margin-bottom: 0; /* Para el último comentario, no agrege margen inferior extra */
+}
