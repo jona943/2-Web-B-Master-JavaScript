@@ -10,15 +10,39 @@ enviar.addEventListener("click", function (event) {
     // Obtengo los valores de los text area en una variable n - c
     let n = nombre.value;
     let c = comentario.value;
-    // Creo un nuevo elemento en html tipo parrafo en una constante
-    const nuevoComentario = document.createElement("p");
-    // Añade una clase para estilizar el comentario
-    nuevoComentario.classList.add('comment-item');
-    // Se asigana el texto del usuario
-    nuevoComentario.textContent = n + ": " + c;
-    // Añade el nuevo elemento a la pagimagit
-    commentUser.appendChild(nuevoComentario);
+
+    // Si los campos están vacíos, no hacer nada
+    if (n.trim() === "" || c.trim() === "") {
+        alert("Por favor, completa ambos campos.");
+        return;
+    }
+
+    // 1. Crear un contenedor para el comentario y el botón
+    const comentarioDiv = document.createElement("div");
+    comentarioDiv.classList.add('comment-item');
+
+    // 2. Crear el párrafo para el texto del comentario
+    const nuevoComentarioP = document.createElement("p");
+    nuevoComentarioP.textContent = n + ": " + c;
+
+    // 3. Crear el botón de eliminar
+    const botonEliminar = document.createElement("button");
+    botonEliminar.textContent = "Eliminar";
+    botonEliminar.classList.add('delete-button'); // Clase para estilos opcionales
+
+    // 4. Añadir evento al botón para eliminar el comentarioDiv
+    botonEliminar.addEventListener('click', function() {
+        commentUser.removeChild(comentarioDiv);
+    });
+
+    // 5. Añadir el párrafo y el botón al div contenedor
+    comentarioDiv.appendChild(nuevoComentarioP);
+    comentarioDiv.appendChild(botonEliminar);
+
+    // 6. Añadir el nuevo comentario a la lista de comentarios
+    commentUser.appendChild(comentarioDiv);
+
+    // 7. Limpiar los campos de texto
+    nombre.value = "";
+    comentario.value = "";
 });
-
-
-
