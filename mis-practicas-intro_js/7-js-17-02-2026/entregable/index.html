@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de contraseñas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="menu">
+        <div id="titulo">
+            <h2>Password Generator</h2>
+        </div>
+
+        <div id="contenedor-aplicacion">
+            <section id="contenedor-Long">
+                <div class="Longuitud">
+                    <h4>Longuitud de caracteres</h4>
+                    <div class="numCaracter"></div>
+                    <div class="longuitud-caracter"></div>
+                </div>
+            </section>
+
+            <section id="contenedor-seccion1">
+                <h3>Seleccione los caracteres</h3>
+                <ul class="seccion1">
+                    <li>
+                        <input type="checkbox">
+                        <label for="type">Incluir Letras Minusculas</label>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <label for="type">Incluir Letras Mayusculas</label>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <label for="type">Incluir Numeros</label>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <label for="type">Incluir Simbolos</label>
+                    </li>
+                </ul>
+            </section>
+
+            <div class="calificacion-password">
+                <h4>Dificultad</h4>
+                <div class="grafica"></div>
+            </div>
+
+            <div class="boton">
+                <button>Generar </button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
