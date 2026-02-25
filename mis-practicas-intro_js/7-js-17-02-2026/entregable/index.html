@@ -14,36 +14,48 @@
             <h2>Password Generator</h2>
         </div>
 
+        <section id="newPassword">
+            <span id="passwordText">P4$sw0rd!</span>
+            <div class="copiar">
+                <span class="icono-copiar"></span>
+            </div>
+        </section>
+
         <div id="contenedor-aplicacion">
+
+
+          <div id="subContenedor">
             <section id="contenedor-Long">
                 <div class="Longuitud">
                     <h4>Longuitud de caracteres</h4>
                     <div class="numCaracter"></div>
-                    <div class="longuitud-caracter"></div>
+                    <div class="longuitud-caracter">
+                <input type="range" id="longitudSlider" min="1" max="20" value="10">
+            </div>
                 </div>
             </section>
 
-            <section id="contenedor-seccion1">
-                <h3>Seleccione los caracteres</h3>
-                <ul class="seccion1">
-                    <li>
-                        <input type="checkbox">
-                        <label for="type">Incluir Letras Minusculas</label>
-                    </li>
-                    <li>
-                        <input type="checkbox">
-                        <label for="type">Incluir Letras Mayusculas</label>
-                    </li>
-                    <li>
-                        <input type="checkbox">
-                        <label for="type">Incluir Numeros</label>
-                    </li>
-                    <li>
-                        <input type="checkbox">
-                        <label for="type">Incluir Simbolos</label>
-                    </li>
-                </ul>
-            </section>
+
+            <h3>Seleccione los caracteres</h3>
+            <ul class="seccion1">
+                <li>
+                    <input type="checkbox">
+                    <label for="type">Incluir Letras Minusculas</label>
+                </li>
+                <li>
+                    <input type="checkbox">
+                    <label for="type">Incluir Letras Mayusculas</label>
+                </li>
+                <li>
+                    <input type="checkbox">
+                    <label for="type">Incluir Numeros</label>
+                </li>
+                <li>
+                    <input type="checkbox">
+                    <label for="type">Incluir Simbolos</label>
+                </li>
+            </ul>
+
 
             <div class="calificacion-password">
                 <h4>Dificultad</h4>
@@ -53,9 +65,10 @@
             <div class="boton">
                 <button>Generar </button>
             </div>
+            
+          </div>
         </div>
-
     </div>
+    <script src="main.js"></script>
 </body>
-
 </html>
