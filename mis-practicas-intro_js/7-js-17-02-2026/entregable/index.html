@@ -26,12 +26,12 @@
 
           <div id="subContenedor">
             <section id="contenedor-Long">
-                <div class="Longuitud">
-                    <h4>Longuitud de caracteres</h4>
-                    <div class="numCaracter"></div>
-                    <div class="longuitud-caracter">
-                <input type="range" id="longitudSlider" min="1" max="20" value="10">
-            </div>
+                <div class="Longitud">
+                    <h4>Longitud de caracteres</h4>
+                    <div id="valorLongitud" class="numCaracter">10</div>
+                </div>
+                <div class="longitud-caracter">
+                    <input type="range" id="longitudSlider" min="1" max="20" value="10">
                 </div>
             </section>
 
@@ -39,31 +39,31 @@
             <h3>Seleccione los caracteres</h3>
             <ul class="seccion1">
                 <li>
-                    <input type="checkbox">
-                    <label for="type">Incluir Letras Minusculas</label>
+                    <input type="checkbox" id="minusculas" checked>
+                    <label for="minusculas">Incluir Letras Minusculas</label>
                 </li>
                 <li>
-                    <input type="checkbox">
-                    <label for="type">Incluir Letras Mayusculas</label>
+                    <input type="checkbox" id="mayusculas">
+                    <label for="mayusculas">Incluir Letras Mayusculas</label>
                 </li>
                 <li>
-                    <input type="checkbox">
-                    <label for="type">Incluir Numeros</label>
+                    <input type="checkbox" id="numeros">
+                    <label for="numeros">Incluir Numeros</label>
                 </li>
                 <li>
-                    <input type="checkbox">
-                    <label for="type">Incluir Simbolos</label>
+                    <input type="checkbox" id="simbolos">
+                    <label for="simbolos">Incluir Simbolos</label>
                 </li>
             </ul>
 
 
             <div class="calificacion-password">
                 <h4>Dificultad</h4>
-                <div class="grafica"></div>
+                <div id="nivelDificultad" class="grafica">MEDIA</div>
             </div>
 
             <div class="boton">
-                <button>Generar </button>
+                <button id="btnGenerar">Generar </button>
             </div>
             
           </div>
