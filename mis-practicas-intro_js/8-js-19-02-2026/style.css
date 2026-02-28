@@ -1,0 +1,230 @@
+/* Estilos Minimalistas y Neutros para el Diario */
+:root {
+    --bg-color: #f9f9f9;
+    --container-bg: #ffffff;
+    --text-primary: #2d3436;
+    --text-secondary: #636e72;
+    --border-color: #dfe6e9;
+    --accent-color: #2d3436;
+    --accent-hover: #000000;
+    --danger-color: #d63031;
+    --safe-color: #2ecc71;
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    line-height: 1.6;
+}
+
+.diario-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1100px;
+    width: 100%;
+}
+
+/* Contenedores */
+.diario-editor,
+.diario-container {
+    background: var(--container-bg);
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    height: fit-content;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: var(--text-primary);
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+/* Editor */
+#texto {
+    width: 100%;
+    min-height: 200px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    resize: vertical;
+    margin-bottom: 20px;
+    transition: border-color 0.2s;
+    background-color: #fff;
+}
+
+#texto:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+#texto::placeholder {
+    color: #b2bec3;
+}
+
+/* Botones */
+.button-container {
+    display: flex;
+    gap: 12px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+#guardar {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    flex: 1;
+}
+
+#guardar:hover {
+    background-color: var(--accent-hover);
+}
+
+#cancelar {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+#cancelar:hover {
+    background-color: #f1f2f6;
+    border-color: var(--text-secondary);
+}
+
+/* Lista de Pensamientos */
+.pensamientos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.pensamiento-card {
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: transform 0.1s, border-color 0.2s;
+}
+
+.pensamiento-card:hover {
+    border-color: var(--text-secondary);
+}
+
+.pensamiento-fecha {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.pensamiento-texto {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    white-space: pre-wrap;
+}
+
+.pensamiento-acciones {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.btn-editar,
+.btn-eliminar {
+    background: none;
+    border: none;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    text-transform: none;
+    font-weight: 400;
+    color: var(--text-secondary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.btn-editar:hover {
+    color: var(--accent-color);
+}
+
+.btn-eliminar:hover {
+    color: var(--danger-color);
+}
+
+/* Sin pensamientos */
+.sin-pensamientos {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 40px 0;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Scrollbar */
+.pensamientos-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.pensamientos-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.pensamientos-list::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .diario-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    body {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .button-container {
+        flex-direction: column;
+    }
+    
+    #guardar, #cancelar {
+        width: 100%;
+    }
+}

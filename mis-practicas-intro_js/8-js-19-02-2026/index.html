@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Querido Diario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="diario-wrapper">
+        <div class="diario-editor">
+            <h1>Querido Diario</h1>
+
+            <textarea id="texto" placeholder="Escribe aqui tus pensamientos..." rows="6" cols="50"></textarea>
+
+            <div class="button-container">
+                <button id="guardar">Guardar Pensamiento</button>
+                <button id="cancelar" style="display: none;">Cancelar</button>
+            </div>
+        </div>
+
+        <div class="diario-container">
+            <h2>Mis Pensamientos</h2>
+            <div id="pensamientos-list" class="pensamientos-list">
+                <!-- Las tarjetas se generarán aquí con JavaScript -->
+            </div>
+            <div id="sin-pensamientos" class="sin-pensamientos">
+                <p>Aún no hay pensamientos guardados. ¡Escribe el primero!</p>
+            </div>
+        </div>
+    </div>
+
+    <!--Conectando nuestro archivo JS-->
+    <script src="scripts.js"></script>
+</body>
+</html>
