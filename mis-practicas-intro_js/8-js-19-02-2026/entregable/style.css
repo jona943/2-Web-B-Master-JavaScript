@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #435a7c;
+    color: #ffffff; /* Texto general en blanco para el fondo oscuro */
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+#contentApp {
+    max-width: 1200px;
+    width: 100%;
+}
+
+#title {
+    margin-bottom: 40px;
+    color: #ffffff; /* Título resaltado en blanco */
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+/* Alineación Horizontal de los Libros */
+#contentFunction {
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;    
+    justify-content: center; 
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.libro-card {
+    background: rgb(2, 16, 24); /* Tu fondo azul muy oscuro */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Sombra más profunda */
+    transition: all 0.3s ease;
+    width: 300px; 
+    text-align: center;
+}
+
+.libro-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.libro-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.libro-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    color: #ffffff; /* Texto blanco para legibilidad */
+}
+
+.libro-card p {
+    font-size: 1rem;
+    color: #bdc3c7; /* Gris claro para el autor */
+    font-style: italic;
+}
+
+/* Sección de Comentarios Unificada al final */
+#seccionResenas {
+    background: #2c3e50; /* Tu azul oscuro intermedio */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#crearComentarios {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#crearComentarios h3 {
+    color: #ffffff; /* Texto blanco para legibilidad */
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#nuevoComentario {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border: 2px solid #435a7c;
+    background-color: #ffffff;
+    color: #333; /* Texto oscuro dentro del área blanca para escribir */
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: none;
+    transition: border-color 0.3s;
+}
+
+#nuevoComentario:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+#enviarComentario {
+    align-self: center;
+    padding: 12px 40px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#enviarComentario:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+#enviarComentario:active {
+    transform: scale(0.98);
+}
+
+#comentariosPublicados {
+    margin-top: 30px;
+    border-top: 1px solid #435a7c;
+    padding-top: 20px;
+    text-align: left;
+}
+
+#comentariosPublicados h3 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+#comentariosPublicados p {
+    color: #bdc3c7;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+/* Clase para los futuros comentarios que agregues con JS */
+.comentario-card {
+    background: #ffffff;
+    color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.comentario-card h4 {
+    color: #2c3e50;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.comentario-card p {
+    color: #555 !important; /* Fuerza el color oscuro sobre fondo blanco */
+    font-style: normal !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+}
