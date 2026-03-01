@@ -86,6 +86,34 @@ body {
     gap: 20px;
 }
 
+#nombreUsuario, #libroSeleccionado {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #435a7c;
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.selector-libro {
+    text-align: left;
+}
+
+.selector-libro label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #bdc3c7;
+}
+
+#nombreUsuario:focus, #libroSeleccionado:focus, #nuevoComentario:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
 #crearComentarios h3 {
     color: #ffffff; /* Texto blanco para legibilidad */
     font-size: 1.5rem;
