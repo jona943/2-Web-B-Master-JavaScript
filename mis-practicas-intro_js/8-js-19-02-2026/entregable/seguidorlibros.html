@@ -12,8 +12,8 @@
     <main>
         <div id="contentApp">
             <h1 id="title">Libros más Leídos</h1>
-            
-            <!-- Sección de libros en Grid -->
+
+            <!-- Sección de libros -->
             <section id="contentFunction">
                 <article class="libro-card" id="libro1">
                     <img src="img/Deja_de_ser_tu.jpeg" alt="Portada del libro Deja de ser tú">
@@ -34,17 +34,29 @@
                 </article>
             </section>
 
-            <!-- Sección de comentarios unificada -->
+            <!-- Sección de reseñas unificada -->
             <section id="seccionResenas">
                 <div id="crearComentarios">
-                    <h3>Deja tu reseña general:</h3>
+                    <h3>Deja tu reseña:</h3>
+                    
+                    <input type="text" id="nombreUsuario" placeholder="Tu nombre">
+                    
+                    <div class="selector-libro">
+                        <label for="libroSeleccionado">Selecciona un libro:</label>
+                        <select id="libroSeleccionado">
+                            <option value="Deja de ser tú">Deja de ser tú - Joe Dispenza</option>
+                            <option value="La Inteligencia Emocional">La Inteligencia Emocional - Daniel Goleman</option>
+                            <option value="Los cuatro acuerdos">Los cuatro acuerdos - Miguel Ruiz</option>
+                        </select>
+                    </div>
+
                     <textarea id="nuevoComentario" placeholder="¿Qué te parecieron estos libros?"></textarea>
                     <button id="enviarComentario">Publicar Reseña</button>
                 </div>
+
                 <div id="comentariosPublicados">
-                    <!-- Aquí se cargarán los comentarios con JS -->
-                     <h3>Reseñas</h3>
-                     <p>Se el primero en escribir una resena</p>
+                    <h3>Reseñas de la comunidad</h3>
+                    <p id="mensajeVacio">Sé el primero en escribir una reseña.</p>
                 </div>
             </section>
         </div>
