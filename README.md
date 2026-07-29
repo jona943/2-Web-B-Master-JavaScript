@@ -10,7 +10,9 @@ Repositorio central del **Módulo 1 de JavaScript** perteneciente al **Master en
 
 ## <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" width="22" height="22" valign="middle" /> Visor Interactivo (Navegador en Navegador)
 
-El repositorio incluye un visor interactivo en la raíz ([`index.html`](file:///home/jonathan-medina/Escritorio/depuracion-repo/1-Web-Master-JS/index.html)) diseñado como un **Simulador de Navegador Web** para probar y previsualizar en tiempo real todas las lecciones y proyectos entregables sin salir de la misma aplicación.
+El repositorio incluye un visor interactivo en la raíz ([`index.html`](./index.html)) diseñado como un **Simulador de Navegador Web** para probar y previsualizar en tiempo real todas las lecciones y proyectos entregables sin salir de la misma aplicación.
+
+[Visualiza aquí la demo interactiva en GitHub Pages](https://jona943.github.io/1-Web-Master-JS/)
 
 ---
 
