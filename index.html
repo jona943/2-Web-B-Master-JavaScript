@@ -2,26 +2,35 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JS Master Playground | Visor de Prácticas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>JS Master Playground | Visor de Prácticas Módulo 1</title>
   
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Prism Syntax Highlighting Theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  
   <link rel="stylesheet" href="style.css">
   
-  <!-- Lucide Icons -->
+  <!-- Lucide Icons & Prism.js -->
   <script src="https://unpkg.com/lucide@latest"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
 </head>
-<body>
+<body class="focus-preview">
 
   <!-- Header Superior -->
   <header>
     <div class="brand">
       <div class="brand-icon">JS</div>
-      <span>Master Playground</span>
+      <div class="brand-title">
+        <span class="main-title">JS Master Playground</span>
+        <span class="sub-title">Módulo 1: Introducción a JavaScript & DOM</span>
+      </div>
     </div>
     
     <div class="badge-beca">
@@ -33,10 +42,13 @@
   <!-- Layout Principal -->
   <div class="app-container">
     
-    <!-- Sidebar de Navegación -->
-    <sidebar>
+    <!-- Sidebar de Temas & Lecciones -->
+    <sidebar id="sidebar">
       <div class="sidebar-header">
-        <div class="sidebar-title">Prácticas de JavaScript</div>
+        <div class="sidebar-title">
+          <span>Temas del Módulo 1</span>
+          <i data-lucide="layers" size="14"></i>
+        </div>
         <input type="text" id="searchInput" class="search-box" placeholder="Buscar lección o entregable...">
       </div>
 
@@ -45,8 +57,8 @@
       </div>
     </sidebar>
 
-    <!-- Simulación de Navegador -->
-    <main>
+    <!-- Simulación de Navegador & Visor -->
+    <main id="mainContent">
       <div class="browser-window">
         <!-- Toolbar estilo navegador -->
         <div class="browser-toolbar">
@@ -57,8 +69,8 @@
           </div>
 
           <div class="nav-btns">
-            <button class="nav-btn" title="Atrás"><i data-lucide="arrow-left" size="16"></i></button>
-            <button class="nav-btn" title="Adelante"><i data-lucide="arrow-right" size="16"></i></button>
+            <button class="nav-btn" id="prevBtn" title="Anterior"><i data-lucide="arrow-left" size="16"></i></button>
+            <button class="nav-btn" id="nextBtn" title="Siguiente"><i data-lucide="arrow-right" size="16"></i></button>
             <button class="nav-btn" id="reloadBtn" title="Recargar"><i data-lucide="rotate-cw" size="16"></i></button>
           </div>
 
@@ -67,15 +79,48 @@
             <span class="address-text" id="addressUrl">http://localhost/1-Web-Master-JS/...</span>
           </div>
 
+          <!-- Selector de Modo en Escritorio (Vista Previa | Código | Consola) -->
+          <div class="mode-tabs" id="modeTabs">
+            <button class="mode-tab active" id="modePreviewBtn">
+              <i data-lucide="globe" size="14"></i> Vista Previa
+            </button>
+            <button class="mode-tab" id="modeCodeBtn">
+              <i data-lucide="code" size="14"></i> Código Fuente
+            </button>
+            <button class="mode-tab" id="modeTerminalBtn">
+              <i data-lucide="terminal" size="14"></i> Consola Output
+            </button>
+          </div>
+
           <a id="externalLink" href="#" target="_blank" class="external-link-btn" title="Abrir en pestaña independiente">
             <span>Pestaña nueva</span>
             <i data-lucide="external-link" size="14"></i>
           </a>
         </div>
 
-        <!-- Visor del Proyecto / Iframe -->
-        <div class="viewport">
+        <!-- Visor del Proyecto (Iframe + Code Viewer + Terminal) -->
+        <div class="viewport-container" id="viewportContainer">
           <iframe id="previewIframe" src="about:blank"></iframe>
+
+          <div class="code-viewer-pane" id="codeViewerPane">
+            <pre><code id="codeViewer" class="language-markup">// Cargando código fuente...</code></pre>
+          </div>
+
+          <!-- Panel de Consola Terminal -->
+          <div class="terminal-pane" id="terminalPane">
+            <div class="terminal-header">
+              <div class="terminal-title">
+                <i data-lucide="terminal" size="14"></i>
+                <span>CONSOLA DE SALIDA (Browser Console Monitor)</span>
+              </div>
+              <button class="nav-btn" id="clearTerminalBtn" title="Limpiar Consola" style="font-size:0.75rem; gap:4px;">
+                <i data-lucide="trash-2" size="12"></i> Limpiar
+              </button>
+            </div>
+            <div class="terminal-body" id="terminalBody">
+              <div class="log-line system"><span class="log-prompt">$</span> Consola lista. Los logs de console.log() de cada práctica aparecerán aquí.</div>
+            </div>
+          </div>
         </div>
 
         <!-- Footer Informativo -->
@@ -87,6 +132,27 @@
     </main>
 
   </div>
+
+  <!-- Barra de Navegación Inferior Móvil (4 Focos: Temas, Vista Previa, Código, Consola) -->
+  <nav class="mobile-bottom-nav" id="mobileBottomNav">
+    <button class="nav-tab" id="navTopicsBtn">
+      <i data-lucide="folder-tree" size="18"></i>
+      <span>Temas</span>
+    </button>
+    <button class="nav-tab active" id="navPreviewBtn">
+      <i data-lucide="globe" size="18"></i>
+      <span>Vista Previa</span>
+    </button>
+    <button class="nav-tab" id="navCodeBtn">
+      <i data-lucide="code" size="18"></i>
+      <span>Código</span>
+    </button>
+    <button class="nav-tab" id="navTerminalBtn">
+      <i data-lucide="terminal" size="18"></i>
+      <span>Consola</span>
+      <span class="nav-badge" id="mobileLogBadge" style="display:none;">0</span>
+    </button>
+  </nav>
 
   <script>
     // Datos de todas las lecciones y entregables registrados
@@ -163,6 +229,11 @@
       }
     ];
 
+    // Estado Global
+    let currentIndex = 0;
+    let currentFocus = 'preview'; // 'topics', 'preview', 'code', 'terminal'
+    let logCount = 0;
+
     // Elementos del DOM
     const container = document.getElementById('lessonsContainer');
     const searchInput = document.getElementById('searchInput');
@@ -170,10 +241,55 @@
     const addressUrl = document.getElementById('addressUrl');
     const externalLink = document.getElementById('externalLink');
     const reloadBtn = document.getElementById('reloadBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
     const lessonObjective = document.getElementById('lessonObjective');
     const lessonDate = document.getElementById('lessonDate');
 
-    // Renderizar lista de lecciones
+    const modePreviewBtn = document.getElementById('modePreviewBtn');
+    const modeCodeBtn = document.getElementById('modeCodeBtn');
+    const modeTerminalBtn = document.getElementById('modeTerminalBtn');
+    const codeViewerPane = document.getElementById('codeViewerPane');
+    const codeViewer = document.getElementById('codeViewer');
+    const terminalPane = document.getElementById('terminalPane');
+    const terminalBody = document.getElementById('terminalBody');
+    const clearTerminalBtn = document.getElementById('clearTerminalBtn');
+
+    const navTopicsBtn = document.getElementById('navTopicsBtn');
+    const navPreviewBtn = document.getElementById('navPreviewBtn');
+    const navCodeBtn = document.getElementById('navCodeBtn');
+    const navTerminalBtn = document.getElementById('navTerminalBtn');
+    const mobileLogBadge = document.getElementById('mobileLogBadge');
+
+    // Cambiar Foco Móvil / Desktop
+    function setFocusMode(mode) {
+      currentFocus = mode;
+      document.body.className = `focus-${mode}`;
+
+      navTopicsBtn.classList.toggle('active', mode === 'topics');
+      navPreviewBtn.classList.toggle('active', mode === 'preview');
+      navCodeBtn.classList.toggle('active', mode === 'code');
+      navTerminalBtn.classList.toggle('active', mode === 'terminal');
+
+      modePreviewBtn.classList.toggle('active', mode === 'preview');
+      modeCodeBtn.classList.toggle('active', mode === 'code');
+      modeTerminalBtn.classList.toggle('active', mode === 'terminal');
+
+      iframe.style.display = (mode === 'preview') ? 'block' : 'none';
+      codeViewerPane.style.display = (mode === 'code') ? 'block' : 'none';
+      terminalPane.style.display = (mode === 'terminal') ? 'flex' : 'none';
+    }
+
+    navTopicsBtn.addEventListener('click', () => setFocusMode('topics'));
+    navPreviewBtn.addEventListener('click', () => setFocusMode('preview'));
+    navCodeBtn.addEventListener('click', () => setFocusMode('code'));
+    navTerminalBtn.addEventListener('click', () => setFocusMode('terminal'));
+
+    modePreviewBtn.addEventListener('click', () => setFocusMode('preview'));
+    modeCodeBtn.addEventListener('click', () => setFocusMode('code'));
+    modeTerminalBtn.addEventListener('click', () => setFocusMode('terminal'));
+
+    // Renderizar Lista de Lecciones
     function renderLessons(filter = '') {
       container.innerHTML = '';
       
@@ -187,9 +303,10 @@
         return;
       }
 
-      filtered.forEach((item, index) => {
+      filtered.forEach((item) => {
+        const originalIndex = lessonsData.indexOf(item);
         const div = document.createElement('div');
-        div.className = `lesson-item ${index === 0 && !filter ? 'active' : ''}`;
+        div.className = `lesson-item ${originalIndex === currentIndex ? 'active' : ''}`;
         
         let tagClass = 'tag-js';
         let tagText = 'JS';
@@ -198,44 +315,144 @@
 
         div.innerHTML = `
           <i data-lucide="${item.tag === 'project' ? 'folder-check' : 'code'}" size="16"></i>
-          <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item.title}</span>
+          <span class="item-name">${item.title}</span>
           <span class="item-tag ${tagClass}">${tagText}</span>
         `;
 
         div.addEventListener('click', () => {
-          document.querySelectorAll('.lesson-item').forEach(el => el.classList.remove('active'));
-          div.classList.add('active');
-          loadLesson(item);
+          selectLesson(originalIndex);
+          if (window.innerWidth <= 768) {
+            setFocusMode('preview');
+          }
         });
 
         container.appendChild(div);
       });
 
-      // Inicializar iconos de Lucide
       lucide.createIcons();
     }
 
-    // Cargar lección en el simulador
-    function loadLesson(item) {
+    // Interceptar Console.log del Iframe
+    function setupIframeConsoleInterceptor() {
+      try {
+        const win = iframe.contentWindow;
+        if (!win) return;
+
+        const origLog = win.console.log;
+        const origInfo = win.console.info;
+        const origWarn = win.console.warn;
+        const origErr = win.console.error;
+
+        win.console.log = (...args) => {
+          appendLog(args.map(formatArg).join(' '), 'log');
+          if (origLog) origLog.apply(win.console, args);
+        };
+        win.console.info = (...args) => {
+          appendLog(args.map(formatArg).join(' '), 'info');
+          if (origInfo) origInfo.apply(win.console, args);
+        };
+        win.console.warn = (...args) => {
+          appendLog(args.map(formatArg).join(' '), 'warn');
+          if (origWarn) origWarn.apply(win.console, args);
+        };
+        win.console.error = (...args) => {
+          appendLog(args.map(formatArg).join(' '), 'error');
+          if (origErr) origErr.apply(win.console, args);
+        };
+      } catch (e) {
+        // Ignorar si hay restricciones de origen
+      }
+    }
+
+    function formatArg(arg) {
+      if (typeof arg === 'object' && arg !== null) {
+        try { return JSON.stringify(arg, null, 2); } catch(e) { return String(arg); }
+      }
+      return String(arg);
+    }
+
+    function appendLog(message, type = 'log') {
+      logCount++;
+      mobileLogBadge.textContent = logCount;
+      mobileLogBadge.style.display = 'inline-block';
+
+      const line = document.createElement('div');
+      line.className = `log-line ${type}`;
+      
+      const prompt = document.createElement('span');
+      prompt.className = 'log-prompt';
+      prompt.textContent = type === 'system' ? '$' : '>';
+      
+      const content = document.createElement('span');
+      content.textContent = message;
+      
+      line.appendChild(prompt);
+      line.appendChild(content);
+      terminalBody.appendChild(line);
+      
+      terminalBody.scrollTop = terminalBody.scrollHeight;
+    }
+
+    iframe.addEventListener('load', () => {
+      setupIframeConsoleInterceptor();
+    });
+
+    clearTerminalBtn.addEventListener('click', () => {
+      terminalBody.innerHTML = `<div class="log-line system"><span class="log-prompt">$</span> Consola limpia.</div>`;
+      logCount = 0;
+      mobileLogBadge.style.display = 'none';
+    });
+
+    // Cargar Lección
+    async function selectLesson(index) {
+      if (index < 0 || index >= lessonsData.length) return;
+      currentIndex = index;
+      const item = lessonsData[currentIndex];
+
+      document.querySelectorAll('.lesson-item').forEach((el, i) => {
+        el.classList.toggle('active', i === currentIndex);
+      });
+
+      appendLog(`▶ Cargando lección: ${item.title}...`, 'system');
+
       iframe.src = item.url;
       addressUrl.textContent = `http://localhost/1-Web-Master-JS/${item.url}`;
       externalLink.href = item.url;
       lessonObjective.textContent = item.objective;
       lessonDate.textContent = `Fecha: ${item.date}`;
+
+      // Cargar código fuente de la lección
+      try {
+        const res = await fetch(item.url);
+        if (res.ok) {
+          const codeText = await res.text();
+          codeViewer.textContent = codeText;
+          Prism.highlightElement(codeViewer);
+        }
+      } catch (err) {
+        codeViewer.textContent = `// Error al cargar fuente de ${item.url}`;
+      }
     }
 
-    // Event listeners
+    // Event Listeners
     searchInput.addEventListener('input', (e) => renderLessons(e.target.value));
     reloadBtn.addEventListener('click', () => {
       iframe.contentWindow.location.reload();
+      appendLog(`🔄 Lección recargada`, 'system');
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) selectLesson(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < lessonsData.length - 1) selectLesson(currentIndex + 1);
     });
 
     // Inicialización al cargar la página
     document.addEventListener('DOMContentLoaded', () => {
       renderLessons();
-      if (lessonsData.length > 0) {
-        loadLesson(lessonsData[lessonsData.length - 1]); // Cargar el proyecto más reciente por defecto
-      }
+      selectLesson(lessonsData.length - 1); // Cargar el entregable más reciente por defecto
     });
   </script>
 </body>
